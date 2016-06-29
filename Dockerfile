@@ -6,6 +6,7 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install python-software-properties -y
 RUN apt-get install software-properties-common -y
+RUN apt-get install libcairo2-dev -y
 RUN add-apt-repository ppa:opencpu/opencpu-1.5 -y
 RUN apt-get update -y
 RUN apt-get install opencpu -y
