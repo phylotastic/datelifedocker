@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 MAINTAINER Brian O'Meara <omeara.brian@gmail.com>
 
@@ -6,7 +6,7 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install python-software-properties -y
 RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:opencpu/opencpu-1.6 -y
+RUN add-apt-repository ppa:opencpu/opencpu-1.5 -y
 RUN apt-get update -y
 RUN apt-get install opencpu -y
 RUN apt-get install opencpu-cache -y
