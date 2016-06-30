@@ -8,6 +8,8 @@ RUN apt-get install python-software-properties -y
 RUN apt-get install software-properties-common -y
 RUN apt-get install libcairo2-dev -y
 RUN apt-get install libxt-dev -y
+RUN apt-get install libprotobuf-dev -y
+RUN apt-get install protobuf-compiler -y
 RUN add-apt-repository ppa:opencpu/opencpu-1.5 -y
 RUN apt-get update -y
 RUN apt-get install opencpu -y
