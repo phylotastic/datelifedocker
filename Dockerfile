@@ -15,9 +15,10 @@ RUN apt-get update -y
 RUN apt-get install opencpu -y
 RUN apt-get install opencpu-cache -y
 RUN apt-get install opencpu-full -y
-RUN service opencpu start
-RUN service opencpu-cache start
 RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
 RUN Rscript -e "install.packages('devtools')"
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 RUN Rscript -e "devtools::install_github('phylotastic/datelifeweb')"
+ADD server.conf /etc/opencpu/server.conf
+RUN service opencpu start
+RUN service opencpu-cache start
