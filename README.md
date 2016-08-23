@@ -7,7 +7,7 @@ Go to datelifedocker directory
 
 Once built, do
 
-`docker run -p 80:80 -p 8004:8004 -p 443:443`
+`docker run -p 80:80 -p 8004:8004 -p 443:443 datelife`
 
 You'll get something like
 
