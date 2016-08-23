@@ -12,7 +12,7 @@ RUN \
   add-apt-repository -y ppa:opencpu/opencpu-1.6 && \
   apt-get update && \
   apt-get install -y opencpu && \
-  apt-get install python-software-properties -y && \ #BCO here and below
+  apt-get install python-software-properties -y && \
   apt-get install libcairo2-dev -y && \
   apt-get install libxt-dev -y && \
   apt-get install libprotobuf-dev -y && \
@@ -22,7 +22,10 @@ RUN \
   Rscript -e "devtools::install_github('phylotastic/datelife')" && \
   Rscript -e "devtools::install_github('phylotastic/datelifeweb')"
 
-ADD server.conf /etc/opencpu/server.conf #BCO
+RUN a2enmod rewrite
+
+ADD server.conf /etc/opencpu/server.conf
+ADD .htaccess /var/www/html/.htaccess
 
 
 # Apache ports #from Ooms
