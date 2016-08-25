@@ -12,6 +12,7 @@ RUN \
   add-apt-repository -y ppa:opencpu/opencpu-1.6 && \
   apt-get update && \
   apt-get install -y opencpu && \
+  apt-get install -y opencpu-cache && \
   apt-get install python-software-properties -y && \
   apt-get install libcairo2-dev -y && \
   apt-get install libxt-dev -y && \
