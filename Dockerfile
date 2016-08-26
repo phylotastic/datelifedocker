@@ -26,7 +26,8 @@ RUN \
 RUN a2enmod rewrite
 
 ADD server.conf /etc/opencpu/server.conf
-ADD .htaccess /var/www/html/.htaccess
+ADD nginix.conf /etc/nginx/nginx.conf
+#ADD .htaccess /var/www/html/.htaccess
 
 
 # Apache ports #from Ooms
