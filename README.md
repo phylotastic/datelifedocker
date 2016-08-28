@@ -21,3 +21,15 @@ OpenCPU Cloud Server Enabled.
 ```
 
 If you then go to: `http://160.36.155.225/ocpu/library/datelifeweb/www/` you'll open datelife's website.
+
+To log in to the container,
+
+```
+docker ps #to get CONTAINERID
+sudo docker exec -i -t CONTAINERID /bin/bash
+```
+
+Or just start with an interactive shell to begin with
+```
+docker run -t -i -p 80:80 -p 8004:8004 datelife sh -c 'service opencpu restart && /bin/bash'
+```
