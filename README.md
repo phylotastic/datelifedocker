@@ -5,6 +5,25 @@ Go to datelifedocker directory
 
 `sudo docker build --no-cache -t datelife .`
 
+Then start
+
+`docker run -t -i -p 3838:3838 datelife`
+
+And go to http://localhost:3838/datelife/
+
+If you do
+
+`docker run -t -i -p 3838:3838 datelife`
+
+You can go to http://localhost/datelife/
+
+
+## OLDER
+
+
+
+
+
 Once built, do
 
 `docker run -p 80:80 -p 8004:8004 -p 443:443 datelife`
@@ -31,5 +50,5 @@ sudo docker exec -i -t CONTAINERID /bin/bash
 
 Or just start with an interactive shell to begin with
 ```
-docker run -t -i -p 80:80 -p 8004:8004 datelife sh -c 'service opencpu restart && /bin/bash'
+docker run -t -i -p 80:80 -p 8004:8004 datelife sh -c '/bin/bash'
 ```

@@ -29,3 +29,7 @@ wget https://github.com/phylotastic/datelifeshiny/archive/master.zip -O /srv/shi
 unzip /srv/shiny-server/master.zip -d /srv/shiny-server/ && \
 mv /srv/shiny-server/datelifeshiny-master/ /srv/shiny-server/datelife/ && \
 rm /srv/shiny-server/master.zip
+
+EXPOSE 80
+
+CMD ["/usr/bin/shiny-server.sh"]
