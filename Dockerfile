@@ -27,7 +27,7 @@ cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8 && \
 wget https://github.com/phylotastic/datelifeweb/archive/master.zip -O /srv/shiny-server/master.zip && \
 unzip /srv/shiny-server/master.zip -d /srv/shiny-server/ && \
-mv /srv/shiny-server/datelifeshiny-master/* /srv/shiny-server/ && \
+mv /srv/shiny-server/datelifeweb-master/* /srv/shiny-server/ && \
 rm /srv/shiny-server/master.zip
 
 EXPOSE 80
