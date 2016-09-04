@@ -19,7 +19,6 @@ echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; opti
 Rscript -e "install.packages('devtools')" && \
 Rscript -e "install.packages('strap')" && \
 Rscript -e "devtools::install_github('phylotastic/datelife')" && \
-Rscript -e "devtools::install_github('phylotastic/datelifeweb')" && \
 mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \
 cd /usr/local/pathd8download && \
