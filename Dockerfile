@@ -25,7 +25,10 @@ wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd
 cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
-cp PATHd8 /usr/local/bin/PATHd8 && \
+cp PATHd8 /usr/local/bin/PATHd8
+
+
+RUN \
 cd /srv && \
 rm -r /srv/shiny-server/* && \
 git clone https://github.com/phylotastic/datelifeweb.git && \
