@@ -32,7 +32,7 @@ RUN \
 cd /srv && \
 rm -r /srv/shiny-server/* && \
 git clone https://github.com/phylotastic/datelifeweb.git && \
-mv /srv/datelifeweb/* /srv/shiny-server/ 
+mv /srv/datelifeweb/* /srv/shiny-server/
 
 EXPOSE 80
 
