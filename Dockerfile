@@ -32,7 +32,7 @@ unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
 
-RUN apt-get install -y mrbayes-mpi
+RUN apt-get install -y mrbayes
 
 
 RUN \
