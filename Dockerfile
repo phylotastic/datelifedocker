@@ -15,17 +15,24 @@ apt-get install -y libprotobuf-dev && \
 apt-get install -y protobuf-compiler && \
 apt-get install -y php libapache2-mod-php php-cli && \
 apt-get install -y git-core && \
-apt-get install -y wget && \
-echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile && \
-Rscript -e "install.packages('devtools')" && \
-Rscript -e "install.packages('strap')" && \
-Rscript -e "devtools::install_github('phylotastic/datelife')" && \
-mkdir /usr/local/pathd8download && \
+apt-get install -y wget
+
+RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
+
+RUN Rscript -e "install.packages('devtools')"
+
+RUN Rscript -e "install.packages('strap')"
+
+RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
+
+RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \
 cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
+
+RUN apt-get install -y mrbayes-mpi
 
 
 RUN \
