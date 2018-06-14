@@ -8,6 +8,7 @@ MAINTAINER Brian O'Meara <omeara.brian@gmail.com>
 RUN \
 apt-get update && \
 apt-get -y dist-upgrade && \
+apt-get install -y apt-utils && \
 apt-get install -y software-properties-common && \
 apt-get install -y libssl-dev  && \
 apt-get install -y libxml2-dev && \
@@ -17,7 +18,14 @@ apt-get install -y php libapache2-mod-php php-cli && \
 apt-get install -y git-core && \
 apt-get install -y wget
 
+RUN apt-get install -y libssh2-1-dev
+
 RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
+
+RUN Rscript -e "install.packages('digest', type='source')"
+
+RUN Rscript -e "install.packages('memoise', type='source')"
+
 
 RUN Rscript -e "install.packages('devtools')"
 
