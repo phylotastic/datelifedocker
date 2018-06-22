@@ -12,6 +12,9 @@ apt-get install -y apt-utils && \
 apt-get install -y software-properties-common && \
 apt-get install -y libssl-dev  && \
 apt-get install -y libxml2-dev && \
+apt-get install -y lib32z1-dev && \
+apt-get install -y libblas-dev && \
+apt-get install -y liblapack-dev && \
 apt-get install -y libprotobuf-dev && \
 apt-get install -y protobuf-compiler && \
 apt-get install -y php libapache2-mod-php php-cli && \
@@ -30,7 +33,10 @@ RUN Rscript -e "install.packages('memoise', type='source')"
 RUN Rscript -e "install.packages('devtools')"
 
 RUN Rscript -e "install.packages('strap')"
-
+RUN Rscript -e "install.packages('jsonlite')"
+# RUN Rscript -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
+RUN Rscript -e "install.packages('rentrez', type='source')"
+RUN Rscript -e "install.packages(c('bold', 'rotl', 'knitcitations'), type='source')"
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
 RUN mkdir /usr/local/pathd8download && \
