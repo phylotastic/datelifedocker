@@ -39,7 +39,7 @@ RUN Rscript -e "install.packages('memoise', type='source')"
 
 RUN Rscript -e "install.packages('devtools')"
 
-RUN Rscript -e "install.packages('shinycssloaders')
+RUN Rscript -e "install.packages('shinycssloaders')"
 
 RUN Rscript -e "install.packages('strap')"
 RUN Rscript -e "install.packages('jsonlite')"
