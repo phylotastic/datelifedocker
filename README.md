@@ -5,6 +5,10 @@ Go to datelifedocker directory
 
 `docker build -t datelife .`
 
+To build with no cache
+
+`docker build -t datelife --no-cache .`
+
 Then start
 
 `docker run -t -i -p 80:3838 datelife`
