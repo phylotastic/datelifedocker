@@ -13,6 +13,16 @@ Then start
 
 `docker run -t -i -p 80:3838 datelife`
 
+After building, can push to docker hub
+
+`docker tag datelife bomeara/datelife`
+
+`docker push bomeara/datelife`
+
+and then other machines can download it to run:
+
+`docker pull bomeara/datelife`
+
 
 
 And go to http://localhost

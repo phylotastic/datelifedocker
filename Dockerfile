@@ -28,7 +28,7 @@ RUN apt-get install -y libssh2-1-dev
 
 RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
 
-RUN Rscript -e "install.packages(rownames(installed.packages()))" 
+RUN Rscript -e "install.packages(rownames(installed.packages()))"
 
 RUN Rscript -e "update.packages(ask=FALSE)"
 
@@ -38,6 +38,8 @@ RUN Rscript -e "install.packages('memoise', type='source')"
 
 
 RUN Rscript -e "install.packages('devtools')"
+
+RUN Rscript -e "install.packages('shinycssloaders')
 
 RUN Rscript -e "install.packages('strap')"
 RUN Rscript -e "install.packages('jsonlite')"
