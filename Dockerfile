@@ -69,7 +69,7 @@ rm -r /srv/shiny-server/* && \
 git clone https://github.com/phylotastic/datelifeweb.git && \
 mv /srv/datelifeweb/* /srv/shiny-server/
 
-COPY shiny-server.conf /etc/shiny-server.conf
+COPY shiny-server.conf /etc/init/shiny-server.conf
 
 EXPOSE 80
 
