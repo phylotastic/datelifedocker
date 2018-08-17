@@ -46,7 +46,7 @@ RUN Rscript -e "install.packages('jsonlite')"
 # RUN Rscript -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN Rscript -e "install.packages('rentrez', type='source')"
 RUN Rscript -e "install.packages(c('bold', 'rotl', 'knitcitations'), type='source')"
-RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
+
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \
@@ -56,6 +56,11 @@ cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
 
 RUN apt-get install -y mrbayes
+
+RUN Rscript -e "install.packages('ape')"
+
+
+RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
 
 RUN \
