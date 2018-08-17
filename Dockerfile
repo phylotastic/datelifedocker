@@ -46,6 +46,7 @@ RUN Rscript -e "install.packages('jsonlite')"
 # RUN Rscript -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN Rscript -e "install.packages('rentrez', type='source')"
 RUN Rscript -e "install.packages(c('bold', 'rotl', 'knitcitations'), type='source')"
+RUN Rscript -e "devtools::install_github('fmichonneau/phyloch')"
 
 
 RUN mkdir /usr/local/pathd8download && \
