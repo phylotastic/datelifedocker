@@ -58,13 +58,11 @@ cp PATHd8 /usr/local/bin/PATHd8
 
 RUN apt-get install -y mrbayes
 
-RUN Rscript -e "install.packages('ape')"
-
 RUN Rscript -e "devtools::install_github('phylotastic/rphylotastic')"
-
 
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
+RUN Rscript -e "install.packages('ape')"
 
 RUN \
 cd /srv && \
