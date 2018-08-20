@@ -62,7 +62,7 @@ RUN Rscript -e "devtools::install_github('phylotastic/rphylotastic')"
 
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
-RUN Rscript -e "install.packages('utils')"
+RUN Rscript -e "install.packages('caper')"
 
 RUN \
 cd /srv && \
