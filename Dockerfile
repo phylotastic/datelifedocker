@@ -60,9 +60,9 @@ RUN apt-get install -y mrbayes
 
 RUN Rscript -e "devtools::install_github('phylotastic/rphylotastic')"
 
-RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
+RUN Rscript -e "install.packages('diversitree')"
 
-RUN Rscript -e "install.packages('ips')"
+RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
 RUN \
 cd /srv && \
