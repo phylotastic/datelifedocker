@@ -60,9 +60,10 @@ RUN apt-get install -y mrbayes
 
 RUN Rscript -e "devtools::install_github('phylotastic/rphylotastic')"
 
+RUN Rscript -e "install.packages('apex')"
+
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
-RUN Rscript -e "install.packages('adhoc')"
 
 RUN \
 cd /srv && \
