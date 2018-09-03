@@ -60,7 +60,7 @@ RUN apt-get install -y mrbayes
 
 RUN Rscript -e "devtools::install_github('phylotastic/rphylotastic')"
 
-RUN Rscript -e "install.packages('caper')"
+RUN Rscript -e "install.packages('cati')"
 
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
