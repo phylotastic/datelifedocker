@@ -11,7 +11,7 @@ apt-get -y dist-upgrade && \
 apt-get install -y apt-utils
 
 RUN \
-apt-get install -y r-api-3.5 && \
+# apt-get install -y r-api-3.5 && \
 apt-get install -y software-properties-common && \
 apt-get install -y libssl-dev  && \
 apt-get install -y libxml2-dev && \
