@@ -28,22 +28,31 @@ RUN apt-get install -y libssh2-1-dev
 
 RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
 
-RUN Rscript -e "install.packages(rownames(installed.packages()))"
+# RUN Rscript -e "install.packages(rownames(installed.packages()))"
 
 RUN Rscript -e "update.packages(ask=FALSE)"
+
+RUN Rscript -e "install.packages('promises', type='source')"
+
+RUN Rscript -e "install.packages('future', type='source')"
+
+RUN Rscript -e "install.packages('geiger', type='source')"
 
 RUN Rscript -e "install.packages('digest', type='source')"
 
 RUN Rscript -e "install.packages('memoise', type='source')"
 
-
 RUN Rscript -e "install.packages('devtools')"
+
+RUN Rscript -e "install.packages('igraph', type='source')"
+
+RUN Rscript -e "install.packages('ade4', type='source')"
 
 RUN Rscript -e "install.packages('shinycssloaders')"
 
 RUN Rscript -e "install.packages('strap')"
 RUN Rscript -e "install.packages('jsonlite')"
-# RUN Rscript -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
+RUN Rscript -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN Rscript -e "install.packages('rentrez', type='source')"
 RUN Rscript -e "install.packages(c('bold', 'rotl', 'knitcitations'), type='source')"
 RUN Rscript -e "devtools::install_github('fmichonneau/phyloch')"
