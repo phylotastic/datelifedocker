@@ -17,7 +17,7 @@ services:
 
   datelife:
     image: bomeara/datelifedocker
-#    ports:
-#      - "80:3838"
+    #ports:
+    #  - "80:3838"
     labels:
       - "datelife.worker"
