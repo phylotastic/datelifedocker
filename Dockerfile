@@ -62,6 +62,8 @@ RUN Rscript -e "devtools::install_github('phylotastic/rphylotastic')"
 
 RUN Rscript -e "install.packages('stringr')"
 
+RUN Rscript -e "install.packages('future')"
+
 RUN Rscript -e "devtools::install_github('phylotastic/datelife')"
 
 
