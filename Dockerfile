@@ -22,7 +22,8 @@ apt-get install -y libprotobuf-dev && \
 apt-get install -y protobuf-compiler && \
 apt-get install -y php libapache2-mod-php php-cli && \
 apt-get install -y git-core && \
-apt-get install -y wget
+apt-get install -y wget && \
+apt-get install -y libmagickcore-dev libmagickwand-dev
 
 RUN apt-get install -y libssh2-1-dev
 
