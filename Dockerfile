@@ -23,7 +23,7 @@ apt-get install -y protobuf-compiler && \
 apt-get install -y php libapache2-mod-php php-cli && \
 apt-get install -y git-core && \
 apt-get install -y wget && \
-apt-get install -y libmagickcore-dev libmagickwand-dev
+apt-get install -y libmagick++-dev libmagickcore-dev libmagickwand-dev
 
 RUN apt-get install -y libssh2-1-dev
 
@@ -33,21 +33,21 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
 
 RUN Rscript -e "update.packages(ask=FALSE)"
 
-RUN Rscript -e "install.packages('promises', type='source')"
+# RUN Rscript -e "install.packages('promises', type='source')"
 
-RUN Rscript -e "install.packages('future', type='source')"
+# RUN Rscript -e "install.packages('future', type='source')"
 
-RUN Rscript -e "install.packages('geiger', type='source')"
+# RUN Rscript -e "install.packages('geiger', type='source')"
 
-RUN Rscript -e "install.packages('digest', type='source')"
+# RUN Rscript -e "install.packages('digest', type='source')"
 
-RUN Rscript -e "install.packages('memoise', type='source')"
+# RUN Rscript -e "install.packages('memoise', type='source')"
 
 RUN Rscript -e "install.packages('devtools')"
 
-RUN Rscript -e "install.packages('igraph', type='source')"
+# RUN Rscript -e "install.packages('igraph', type='source')"
 
-RUN Rscript -e "install.packages('ade4', type='source')"
+# RUN Rscript -e "install.packages('ade4', type='source')"
 
 RUN Rscript -e "install.packages('shinycssloaders')"
 
