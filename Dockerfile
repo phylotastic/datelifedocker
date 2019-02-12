@@ -22,8 +22,18 @@ apt-get install -y libprotobuf-dev && \
 apt-get install -y protobuf-compiler && \
 apt-get install -y php libapache2-mod-php php-cli && \
 apt-get install -y git-core && \
+apt-get install -y curl && \
 apt-get install -y wget && \
 apt-get install -y libmagick++-dev libmagickcore-dev libmagickwand-dev
+
+# git lfs, from https://github.com/git-lfs/git-lfs/wiki/Installation and debugging the libssh2-1-dev install first.
+RUN apt install -y libssh-4 libssh-dev libssh2-1 libssh2-1-dev
+
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get install -y --no-install-recommends git-lfs && \
+    git lfs install && \
+    DEBIAN_FRONTEND=noninteractive apt-get purge -y --auto-remove ${build_deps} && \
+    rm -r /var/lib/apt/lists/*
 
 RUN apt-get install -y libssh2-1-dev
 
@@ -65,6 +75,8 @@ cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
+
+RUN apt-get update
 
 RUN apt-get install -y mrbayes
 
