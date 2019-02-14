@@ -29,8 +29,8 @@ Now, go to http://localhost on any browser to watch the server running
 
 Doing
 
-`docker run -t -i -p 80:3838 datelife sh -c '/bin/bash'`
+`docker run -t -i -p 80:3838 bomeara/datelife sh -c '/bin/bash'`
 
-Will log you into the server so you can look around (i.e., in the /srv dir). 
+Will log you into the server so you can look around (i.e., in the /srv dir).
 
 Once you've finished looking around, just type `exit` and you will be logged out.
