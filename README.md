@@ -40,3 +40,7 @@ Doing
 Will log you into the server so you can look around (i.e., in the /srv dir).
 
 Once you've finished looking around, just type `exit` and you will be logged out.
+
+You can run multiple instances using
+
+`docker-compose up -d --scale datelife=10` for ten instances
