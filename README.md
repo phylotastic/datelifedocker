@@ -44,3 +44,17 @@ Once you've finished looking around, just type `exit` and you will be logged out
 You can run multiple instances using
 
 `docker-compose up -d --scale datelife=10` for ten instances
+
+## Swarm
+
+Go to node where swarm is being managed. You can change the number of workers in replicas in docker-compose-swarm.yml
+
+`sudo docker stack deploy --compose-file docker-compose-swarm.yml datelife`
+
+See how it's doing with
+
+`sudo docker stack services datelife`
+
+And stop it with
+
+`sudo docker stack rm datelife`

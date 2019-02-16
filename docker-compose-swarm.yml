@@ -22,4 +22,4 @@ services:
     labels:
       - "datelife.worker"
     deploy:
-      replicas: 40
+      replicas: 200
