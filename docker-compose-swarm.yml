@@ -1,0 +1,25 @@
+version: '3'
+
+# This is based on https://docs.traefik.io/
+# can start 4 datelife instances with
+# docker-compose up -d --scale datelife=4
+# from within the folder containing this yml doc
+
+services:
+  reverse-proxy:
+    image: traefik # The official Traefik docker image
+    command: --api --docker # Enables the web UI and tells Træfik to listen to docker
+    ports:
+      - "80:80"     # The HTTP port
+      - "8080:8080" # The Web UI (enabled by --api)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+
+  datelife:
+    image: bomeara/datelifedocker
+    #ports:
+    #  - "80:3838"
+    labels:
+      - "datelife.worker"
+    deploy:
+      replicas: 40
