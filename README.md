@@ -58,3 +58,5 @@ See how it's doing with
 And stop it with
 
 `sudo docker stack rm datelife`
+
+For domain, *, @, www all resolve to `datelife19.campus.utk.edu.` (yes, with a period after edu) using CNAME
