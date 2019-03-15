@@ -53,6 +53,8 @@ RUN Rscript -e "update.packages(ask=FALSE)"
 
 # RUN Rscript -e "install.packages('memoise', type='source')"
 
+RUN Rscript -e "install.packages('rcmdcheck')"
+
 RUN Rscript -e "install.packages('devtools')"
 
 # RUN Rscript -e "install.packages('igraph', type='source')"
