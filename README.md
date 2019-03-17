@@ -1,5 +1,6 @@
 # datelifedocker
-Instructions to set up DateLife server.
+
+Instructions to set up DateLife server. Note that docker hub automatically rebuilds the bomeara/datelife image with pushes to phylotastic/datelifedocker, so this typically won't be needed, but can help with debugging.
 
 Download datelifedocker.
 
