@@ -11,6 +11,7 @@ Resources:
 - https://hub.docker.com/u/rocker
 - https://juanitorduz.github.io/dockerize-a-shinyapp/
 - https://bhoom.wordpress.com/2020/06/18/using-multiple-r-versions-with-docker-rocker-rstudio-project/
+- https://githubmemory.com/repo/rocker-org/shiny/issues/92
 
 RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
 

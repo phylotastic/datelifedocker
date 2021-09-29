@@ -14,23 +14,32 @@ MAINTAINER Luna Sare <sanchez.reyes.luna@gmail.com>
 RUN apt-get update && apt-get -y dist-upgrade
 
 RUN apt-get install -y apt-utils \
-                       software-properties-common \
-                       libssl-dev \
-                       libxml2-dev \
-                       lib32z1-dev \
-                       libblas-dev \
-                       liblapack-dev \
-                       libprotobuf-dev \
-                       protobuf-compiler \
-                       php libapache2-mod-php php-cli \
-                       git-core \
-                       curl \
-                       wget \
-                       libmagick++-dev libmagickcore-dev libmagickwand-dev \
-                       libssh2-1-dev
+    software-properties-common \
+    libssl-dev \
+    libxml2-dev \
+    lib32z1-dev \
+    libblas-dev \
+    liblapack-dev \
+    libprotobuf-dev \
+    protobuf-compiler \
+    php libapache2-mod-php php-cli \
+    git-core \
+    curl \
+    wget \
+    libmagick++-dev libmagickcore-dev libmagickwand-dev \
+    libssh2-1-dev \
+    sudo \
+    gdebi-core \
+    pandoc \
+    pandoc-citeproc \
+    libcurl4-gnutls-dev \
+    libcairo2-dev \
+    libxt-dev \
+    xtail
 
 RUN R -e "R.Version()"
 
+# Initialize git lfs
 # git lfs, from https://github.com/git-lfs/git-lfs/wiki/Installation and debugging the libssh2-1-dev install first.
 RUN apt install -y libssh-4 libssh-dev libssh2-1 libssh2-1-dev
 
@@ -44,40 +53,39 @@ RUN apt-get update && \
 # Install packages needed for your shiny app to run
 
 RUN R -e "update.packages(ask=FALSE)"
-RUN R -e "install.packages('rcmdcheck')"
-RUN R -e "install.packages('devtools')"
-RUN R -e "install.packages('shinycssloaders')"
-RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('shinydashboard', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('lubridate', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('magrittr', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('glue', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('DT', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('plotly', repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('strap')"
-RUN R -e "install.packages('jsonlite')"
-RUN R -e "install.packages('rentrez', type='source')"
-RUN R -e "install.packages(c('bold', 'rotl', 'knitcitations'), type='source')"
-RUN R -e "install.packages('stringr')"
-RUN R -e "install.packages('future')"
-RUN R -e "install.packages('phangorn')"
-RUN R -e "install.packages('latticeExtra')"
-RUN R -e "install.packages('Hmisc')"
+RUN R -e "install.packages(c('rcmdcheck', \
+    'shinycssloaders', \
+    'strap', \
+    'jsonlite', \
+    'stringr', \
+    'future', \
+    'phangorn', \
+    'latticeExtra', \
+    'Hmisc'))"
+RUN R -e "install.packages(c('shiny', \
+    'shinydashboard', \
+    'lubridate', \
+    'magrittr', \
+    'glue', \
+    'DT', \
+    'devtools', \
+    'plotly'), repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages(c('bold', 'rotl', 'knitcitations', 'rentrez'), type='source')"
 RUN R -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN R -e "devtools::install_github('fmichonneau/phyloch')"
 RUN R -e "devtools::install_github('phylotastic/rphylotastic')"
 
 
 # Installing datelife from GitHub
-# RUN R -e "devtools::install_github('phylotastic/datelife')"
+RUN R -e "devtools::install_github('phylotastic/datelife', ref = 'datelife-plots')"
 
 # Installing datelife locally from a development branch
-RUN pwd && \
-    git clone https://github.com/phylotastic/datelife.git  && \
-    cd datelife && \
-    pwd && \
-    git checkout datelife-plots  && \
-    R -e "devtools::install('.')"
+# RUN pwd && \
+#     git clone https://github.com/phylotastic/datelife.git  && \
+#     cd datelife && \
+#     pwd && \
+#     git checkout datelife-plots  && \
+#     R -e "devtools::install('.')"
 
 # Installing PATHd8
 
@@ -93,17 +101,17 @@ RUN mkdir /usr/local/pathd8download && \
 RUN apt-get update && \
     apt-get install -y mrbayes
 
-
 # Copying the datelifeweb shiny app to the docker image so it can be served
 
-RUN \
+RUN apt-get update && \
   cd /srv && \
+  pwd && \
   rm -r /srv/shiny-server/* && \
   git clone https://github.com/phylotastic/datelifeweb.git && \
   mv /srv/datelifeweb/* /srv/shiny-server/
 
-COPY shiny-server.conf /etc/init/shiny-server.conf
 
+# select port
 EXPOSE 80
 
-CMD ["/usr/bin/shiny-server.sh"]
+CMD ["/usr/bin/shiny-server"]
