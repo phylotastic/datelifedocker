@@ -9,6 +9,7 @@ Resources:
 - https://www.statworx.com/at/blog/how-to-dockerize-shinyapps/
 - https://www.youtube.com/watch?v=ARd5IldVFUs
 - https://hub.docker.com/u/rocker
+- https://www.dabbleofdevops.com/blog/deploy-rshiny-with-the-rocker-shiny-docker-image
 - https://juanitorduz.github.io/dockerize-a-shinyapp/
 - https://bhoom.wordpress.com/2020/06/18/using-multiple-r-versions-with-docker-rocker-rstudio-project/
 - https://githubmemory.com/repo/rocker-org/shiny/issues/92
