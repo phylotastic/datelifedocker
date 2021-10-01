@@ -50,13 +50,13 @@ Argument `-d` is optional, it stands for `--detach`, allowing you to keep on usi
 
 This is very useful for debugging. If you tried setting up a prebuilt docker image and it fails, this is the way to go.
 
-2.1. Make sure you have [Docker desktop installed](https://www.docker.com/products/docker-desktop). Then, download [datelifedocker repository](https://github.com/phylotastic/datelifedocker) to your computer. One way is to type from the terminal:
+- **2.1.** Make sure you have [Docker desktop installed](https://www.docker.com/products/docker-desktop). Then, download [datelifedocker repository](https://github.com/phylotastic/datelifedocker) to your computer. One way is to type from the terminal:
 
 ```shell
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
-2.2. Change directories to your newly created datelifedocker directory using `cd`, and build the DateLife docker image with:
+- 2.2. Change directories to your newly created datelifedocker directory using `cd`, and build the DateLife docker image with:
 
 ```shell
     docker build -t datelife .
@@ -64,7 +64,7 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
 
 To build with no cache type `docker build -t datelife --no-cache .`
 
-2.3. Now you can start the DateLife server from your newly created docker image with:
+- ***2.3.*** Now you can start the DateLife server from your newly created docker image with:
 
 ```shell
     docker run -t -i -p 80:3838 datelife
