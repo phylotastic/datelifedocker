@@ -14,39 +14,41 @@
 
 Ideally, docker hub automatically builds the DateLife docker image at [bomeara/datelife](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to the GitHub [phylotastic/datelifedocker repo](https://github.com/phylotastic/datelifedocker).
 
-To get that prebuilt DateLife docker image you have to do a `docker pull`:
+To get that prebuilt DateLife docker image you have to have [docker installed](https://www.docker.com/products/docker-desktop). Then, get the prebuilt DateLife docker image from Docker Hub with `docker pull`:
 
 ```shell
     docker pull bomeara/datelife
 ```
 
-Now you can start the image using `docker run`, either in "bash mode" so you can look around (i.e., in the /srv dir):
+Now you can start the image using `docker run`. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
 
 ```shell
     docker run -t -i -p 80:3838 bomeara/datelife sh -c '/bin/bash'
 ```
 
-Or as a server with
+Once you've finished looking around, just type `exit` and you will be logged out.
+
+To start the image in serve mode, do:
 
 ```shell
-    docker run -t -i -p 80:3838 datelife
+    docker run -t -i -d -p 80:3838 datelife
 ```
 
-Once you've finished looking around, just type `exit` and you will be logged out.
+Argument `-d` is optional, it stands for `--detach`, allowing you to keep on using your terminal while the DateLife website is being served.
+
+Go to http://localhost on any browser to checkout your Datelife website and shiny app running.
 
 ### Building your own DateLife docker image
 
 This is very useful for debugging. If you tried setting up a prebuilt docker image and it fails, this is the way to go.
 
-1. Install [docker-desktop](https://www.docker.com/products/docker-desktop)
-
-2. Download datelifedocker to your computer. One way is to type from the terminal:
+1. Make sure you have [Docker desktop installed](https://www.docker.com/products/docker-desktop). Then, download [datelifedocker repository](https://github.com/phylotastic/datelifedocker) to your computer. One way is to type from the terminal:
 
 ```shell
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
-3. `cd` to the datelifedocker directory and build the DateLife docker image with
+2. Change directories to your newly created datelifedocker directory using `cd`, and build the DateLife docker image with:
 
 ```shell
     docker build -t datelife .
@@ -54,7 +56,7 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
 
 To build with no cache type `docker build -t datelife --no-cache .`
 
-4. Now you can start the DateLife server from your newly created docker image with
+3. Now you can start the DateLife server from your newly created docker image with:
 
 ```shell
     docker run -t -i -p 80:3838 datelife
@@ -64,20 +66,25 @@ Go to http://localhost on any browser to checkout your Datelife shiny app runnin
 
 To stop serving, type `Ctrl + c` or `exit`
 
-5. To explore the contents of the DateLife docker image on terminal, first list all your docker containers with `docker container ls`, and get the name of your container.
-
-Then
+4. To explore the contents of the DateLife docker image on terminal, you can do:
 
 ```shell
+docker run -t -i datelife sh -c '/bin/bash'
+```
 
-docker run -it datelife bash
+If you want to explore a particular container, first list them all with `docker container ls`, and identify the `container-name` of the one you are interested in.
+
+Then restart your container and execute it with:
+
+```shell
 docker container restart <container-name>
-
+docker exec -it <container-name> sh -c '/bin/bash'
 ```
 
 For more tips see [how-do-i-get-into-a-docker-containers-shell](https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell)
+and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421).
 
-6. After building and making changes, you can push (if you have permissions) the new DateLife docker image to docker hub with:
+5. After building and making changes, you can push (if you have permissions) the new DateLife docker image to docker hub with:
 
 ```shell
     docker tag datelife bomeara/datelife
