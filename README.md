@@ -21,13 +21,13 @@ Having a "dockerized" application means that you can set up your own `datelife` 
 
 Ideally, docker hub automatically builds the DateLife docker image at [bomeara/datelife](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to the GitHub [phylotastic/datelifedocker repo](https://github.com/phylotastic/datelifedocker).
 
-  1.1) To get that prebuilt DateLife docker image you need to have [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, get the prebuilt DateLife docker image from Docker Hub with `docker pull`:
+  - *1.1.* To get that prebuilt DateLife docker image you need to have [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, get the prebuilt DateLife docker image from Docker Hub with `docker pull`:
 
 ```shell
     docker pull bomeara/datelife
 ```
 
-  1.2) Now you can start the image using `docker run`. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
+  - *1.2.* Now you can start the image using `docker run`. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
 
 ```shell
     docker run -t -i -p 80:3838 bomeara/datelife sh -c '/bin/bash'
@@ -35,7 +35,7 @@ Ideally, docker hub automatically builds the DateLife docker image at [bomeara/d
 
 Once you've finished looking around, just type `exit` and you will be logged out.
 
-  1.3) To start the image in serve mode, do:
+  - *1.3.* To start the image in serve mode, do:
 
 ```shell
     docker run -t -i -d -p 80:3838 datelife
