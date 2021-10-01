@@ -3,9 +3,9 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/bomeara/datelife?color=green)
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bomeara/datelife)
 ![Docker Automated build](https://img.shields.io/docker/automated/bomeara/datelife?color=green)
-[![NSF-1458603](https://img.shields.io/badge/NSF-1458603-white.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1458603)
-[![NSF-0905606](https://img.shields.io/badge/NSF-0905606-white.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=0905606)
-[![NSF-1458572](https://img.shields.io/badge/NSF-1458572-white.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1458572)
+[![NSF-1458603](https://img.shields.io/badge/NSF-1458603-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1458603)
+[![NSF-0905606](https://img.shields.io/badge/NSF-0905606-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=0905606)
+[![NSF-1458572](https://img.shields.io/badge/NSF-1458572-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1458572)
 
 
 ## Setting up a DateLife server on a machine
