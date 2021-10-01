@@ -12,6 +12,7 @@ MAINTAINER Luna Sare <sanchez.reyes.luna@gmail.com>
 # Install system libraries of general use
 
 RUN apt-get update && apt-get -y dist-upgrade
+                                    
 
 RUN apt-get install -y apt-utils \
     software-properties-common \
@@ -35,7 +36,9 @@ RUN apt-get install -y apt-utils \
     libcurl4-gnutls-dev \
     libcairo2-dev \
     libxt-dev \
-    xtail
+    xtail \
+    build-essential \
+    libglpk40
 
 RUN R -e "R.Version()"
 
@@ -53,6 +56,9 @@ RUN apt-get update && \
 # Install packages needed for your shiny app to run
 
 RUN R -e "update.packages(ask=FALSE)"
+
+RUN R -e "install.packages(c('igraph', 'ggdag'), dependencies = T)"
+
 RUN R -e "install.packages(c('rcmdcheck', \
     'shinycssloaders', \
     'strap', \
@@ -109,6 +115,7 @@ RUN apt-get update && \
   rm -r /srv/shiny-server/* && \
   git clone https://github.com/phylotastic/datelifeweb.git && \
   mv /srv/datelifeweb/* /srv/shiny-server/
+
 
 
 # select port
