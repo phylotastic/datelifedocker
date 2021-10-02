@@ -1,18 +1,17 @@
-# Get a shiny server
+# Get a shiny image
 
+# Specifying "latest" on version did not work (it kept loading a very old R version).
+# I had to specify explicitly the R version number, i.e., rocker/shiny:latest -> rocker/shiny:4.1.0
+
+# FROM rocker/shiny:latest
 FROM rocker/shiny:4.1.0
-
-# Specifying "latest" on version did not work (it kept loading a very old R version). I had to specify the R version using
-# its number. E.g., rocker/shiny:latest -> rocker/shiny:4.1.0
-# Guided by Shiny tutorials and https://github.com/flaviobarros/shiny-wordcloud/blob/master/Dockerfile
-# Other resources https://www.statworx.com/at/blog/how-to-dockerize-shinyapps/
 
 MAINTAINER Luna Sare <sanchez.reyes.luna@gmail.com>
 
 # Install system libraries of general use
 
 RUN apt-get update && apt-get -y dist-upgrade
-                                    
+
 
 RUN apt-get install -y apt-utils \
     software-properties-common \
@@ -53,7 +52,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get purge -y --auto-remove ${build_deps} && \
     rm -r /var/lib/apt/lists/*
 
-# Install packages needed for your shiny app to run
+# Install packages needed for the datelife shiny app to run
 
 RUN R -e "update.packages(ask=FALSE)"
 
@@ -80,12 +79,15 @@ RUN R -e "install.packages(c('bold', 'rotl', 'knitcitations', 'rentrez'), type='
 RUN R -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN R -e "devtools::install_github('fmichonneau/phyloch')"
 RUN R -e "devtools::install_github('phylotastic/rphylotastic')"
+RUN R -e "devtools::install_github('phylotastic/datelifeplot')"
 
 
 # Installing datelife from GitHub
+
 RUN R -e "devtools::install_github('phylotastic/datelife', ref = 'datelife-plots')"
 
 # Installing datelife locally from a development branch
+
 # RUN pwd && \
 #     git clone https://github.com/phylotastic/datelife.git  && \
 #     cd datelife && \
