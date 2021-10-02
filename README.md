@@ -12,25 +12,29 @@
 `datelife`'s webiste app [is constructed with R shiny](https://github.com/phylotastic/datelifeweb) and is containerized with [Docker](https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=namer&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw7--KBhAMEiwAxfpkWMXM6XbTANoSspqojqsXX7dBeTm13Yc7lwzn8kz7iAWAT_m0fEo9MRoCq9MQAvD_BwE), i.e. "dockerized", as [explained here](https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/). This repository hosts the instructions for  "dockerizing" `datelife`, which we whipped up by following diverse [valuable resources](#resources). The `datelife` docker allows anyone to set up their own server for the `datelife` webb app anywhere.
 There are a few alternative ways to do this. For all of them you require [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Next you can find instructions on:
 
-[1. Setting up a prebuilt `datelife` image](#1-using-a-prebuilt-datelife-docker-image) <br>
-[2. Building a local `datelife` image on your own](#2-building-your-own-datelife-docker-image) <br>
-[3. Running multiple instances of the `datelife` shiny app](#3-running-multiple-instances) <br>
+[1. Setting up a prebuilt `datelife` image](#1-using-a-prebuilt-datelife-docker-image)
+
+[2. Building a local `datelife` image on your own](#2-building-your-own-datelife-docker-image)
+
+[3. Running multiple instances of the `datelife` shiny app](#3-running-multiple-instances)
+
 [4. Using swarm](#4-swarm).
+<br><br>
 
 ## 1. Using a prebuilt DateLife docker image
 
 Ideally, docker hub automatically builds the DateLife docker image at [bomeara/datelife](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to the GitHub [phylotastic/datelifedocker repo](https://github.com/phylotastic/datelifedocker).
 
-<ul style="list-style-type: none;">
-  <li> 1.1. To get that prebuilt DateLife docker image you need to have [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, get the prebuilt DateLife docker image from Docker Hub with `docker pull`:
-  </li>
+<ul style="list-style-type:none;">
+  <li> 1.1. To get that prebuilt DateLife docker image you need to have [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, get the prebuilt DateLife docker image from Docker Hub with <code>docker pull</code>:
+  </li><br>
 
 ```shell
     docker pull bomeara/datelife
 ```
 
-  <li> 1.2. Now you can start the image using `docker run`. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
-  </li>
+  <li> 1.2. Now you can start the image using <code>docker run</code>. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
+  </li><br>
 
 ```shell
     docker run -t -i -p 80:3838 bomeara/datelife sh -c '/bin/bash'
@@ -55,15 +59,15 @@ Argument `-d` is optional, it stands for `--detach`, allowing you to keep on usi
 
 This is very useful for debugging. If you tried setting up a prebuilt docker image and it fails, this is the way to go.
 
-<ul style="list-style-type: none;">
-  <li> 2.1. Make sure you have [Docker desktop installed](https://www.docker.com/products/docker-desktop). Then, download [datelifedocker repository](https://github.com/phylotastic/datelifedocker) to your computer. One way is to type from the terminal:
+<ul style="list-style-type:none;">
+  <li> 2.1. Make sure you have <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, download the <a href="https://github.com/phylotastic/datelifedocker">datelifedocker repository</a> to your computer. One way is to type from the terminal:
   </li>
 
 ```shell
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
-  <li> 2.2. Change directories to your newly created datelifedocker directory using `cd`, and build the DateLife docker image with:
+  <li> 2.2. Change directories to your newly created datelifedocker directory using <code>cd</code>, and build the DateLife docker image with:
   </li>
 
 ```shell
@@ -122,7 +126,7 @@ You can run multiple shiny app instances with:
 
 ## 4. Swarm
 
-<ul style="list-style-type: none;">
+<ul style="list-style-type:none;">
   <li> 4.1 Go to node where swarm is being managed. You can change the number of workers in replicas in docker-compose-swarm.yml
   </li>
 
