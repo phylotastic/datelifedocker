@@ -12,9 +12,9 @@
 `datelife`'s webiste app [is constructed with R shiny](https://github.com/phylotastic/datelifeweb) and is containerized with [Docker](https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=namer&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw7--KBhAMEiwAxfpkWMXM6XbTANoSspqojqsXX7dBeTm13Yc7lwzn8kz7iAWAT_m0fEo9MRoCq9MQAvD_BwE), i.e. "dockerized", as [explained here](https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/). This repository hosts the instructions for  "dockerizing" `datelife`, which we whipped up by following diverse [valuable resources](#resources). The `datelife` docker allows anyone to set up their own server for the `datelife` webb app anywhere.
 There are a few alternative ways to do this. For all of them you require [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Next you can find instructions on:
 
-[1. Setting up a prebuilt `datelife` image](#1-using-a-prebuilt-datelife-docker-image)
-[2. Building a local `datelife` image on your own](#2-building-your-own-datelife-docker-image)
-[3. Running multiple instances of the `datelife` shiny app](#3-running-multiple-instances)
+[1. Setting up a prebuilt `datelife` image](#1-using-a-prebuilt-datelife-docker-image) <br>
+[2. Building a local `datelife` image on your own](#2-building-your-own-datelife-docker-image) <br>
+[3. Running multiple instances of the `datelife` shiny app](#3-running-multiple-instances) <br>
 [4. Using swarm](#4-swarm).
 
 ## 1. Using a prebuilt DateLife docker image
@@ -29,7 +29,6 @@ Ideally, docker hub automatically builds the DateLife docker image at [bomeara/d
     docker pull bomeara/datelife
 ```
 
-<ul style="list-style-type: none;">
   <li> 1.2. Now you can start the image using `docker run`. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
   </li>
 
@@ -39,7 +38,6 @@ Ideally, docker hub automatically builds the DateLife docker image at [bomeara/d
 
 Once you've finished looking around, just type `exit` and you will be logged out.
 
-<ul style="list-style-type: none;">
   <li> 1.3. To start the image in serve mode, do:
   </li>
 
@@ -51,6 +49,7 @@ Go to http://localhost on any browser to checkout your Datelife website and shin
 
 Argument `-d` is optional, it stands for `--detach`, allowing you to keep on using your terminal while the DateLife website is being served.
 
+</ul>
 
 ## 2. Building your own DateLife docker image
 
@@ -64,7 +63,6 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
-<ul style="list-style-type: none;">
   <li> 2.2. Change directories to your newly created datelifedocker directory using `cd`, and build the DateLife docker image with:
   </li>
 
@@ -74,7 +72,6 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
 
 To build with no cache type `docker build -t datelife --no-cache .`
 
-<ul style="list-style-type: none;">
   <li> 2.3 Now you can start the DateLife server from your newly created docker image with:
   </li>
 
@@ -86,7 +83,6 @@ Go to http://localhost on any browser to checkout your Datelife shiny app runnin
 
 To stop serving, type `Ctrl + c` or `exit`
 
-<ul style="list-style-type: none;">
   <li> 2.4. To explore the contents of the DateLife docker image on terminal, you can do:
   </li>
 
@@ -106,7 +102,6 @@ docker exec -it <container-name> sh -c '/bin/bash'
 For more tips see [how-do-i-get-into-a-docker-containers-shell](https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell)
 and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421).
 
-<ul style="list-style-type: none;">
   <li> 2.5. After building and making changes, you can push (if you have permissions) the new DateLife docker image to docker hub with:
   </li>
 
@@ -115,6 +110,7 @@ and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docke
     docker login
     docker push bomeara/datelife
 ```
+</ul>
 
 ## 3. Running multiple instances
 
@@ -134,7 +130,6 @@ You can run multiple shiny app instances with:
     sudo docker stack deploy --compose-file docker-compose-swarm.yml datelife
 ```
 
-<ul style="list-style-type: none;">
   <li> 4.2. See how it's doing with
   </li>
 
@@ -142,7 +137,6 @@ You can run multiple shiny app instances with:
     sudo docker stack services datelife
 ```
 
-<ul style="list-style-type: none;">
   <li> 4.3. And stop it with
   </li>
 
@@ -151,6 +145,8 @@ You can run multiple shiny app instances with:
 ```
 
 For domain, *, @, www all resolve to `datelife19.campus.utk.edu.` (yes, with a period after edu) using CNAME
+
+</ul>
 
 ## Resources
 
