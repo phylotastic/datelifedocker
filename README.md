@@ -43,7 +43,7 @@ Ideally, docker hub automatically builds the DateLife docker image at [bomeara/d
 Once you've finished looking around, just type `exit` and you will be logged out.
 
   <li> 1.3. To start the image in serve mode, do:
-  </li>
+  </li><br>
 
 ```shell
     docker run -t -i -d -p 80:3838 datelife
@@ -61,14 +61,14 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
 
 <ul style="list-style-type:none;">
   <li> 2.1. Make sure you have <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, download the <a href="https://github.com/phylotastic/datelifedocker">datelifedocker repository</a> to your computer. One way is to type from the terminal:
-  </li>
+  </li><br>
 
 ```shell
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
   <li> 2.2. Change directories to your newly created datelifedocker directory using <code>cd</code>, and build the DateLife docker image with:
-  </li>
+  </li><br>
 
 ```shell
     docker build -t datelife .
@@ -77,7 +77,7 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
 To build with no cache type `docker build -t datelife --no-cache .`
 
   <li> 2.3 Now you can start the DateLife server from your newly created docker image with:
-  </li>
+  </li><br>
 
 ```shell
     docker run -t -i -p 80:3838 datelife
@@ -88,7 +88,7 @@ Go to http://localhost on any browser to checkout your Datelife shiny app runnin
 To stop serving, type `Ctrl + c` or `exit`
 
   <li> 2.4. To explore the contents of the DateLife docker image on terminal, you can do:
-  </li>
+  </li><br>
 
 ```shell
 docker run -t -i datelife sh -c '/bin/bash'
@@ -107,7 +107,7 @@ For more tips see [how-do-i-get-into-a-docker-containers-shell](https://stackove
 and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421).
 
   <li> 2.5. After building and making changes, you can push (if you have permissions) the new DateLife docker image to docker hub with:
-  </li>
+  </li><br>
 
 ```shell
     docker tag datelife bomeara/datelife
@@ -128,21 +128,21 @@ You can run multiple shiny app instances with:
 
 <ul style="list-style-type:none;">
   <li> 4.1 Go to node where swarm is being managed. You can change the number of workers in replicas in docker-compose-swarm.yml
-  </li>
+  </li><br>
 
 ```shell
     sudo docker stack deploy --compose-file docker-compose-swarm.yml datelife
 ```
 
   <li> 4.2. See how it's doing with
-  </li>
+  </li><br>
 
 ```shell
     sudo docker stack services datelife
 ```
 
   <li> 4.3. And stop it with
-  </li>
+  </li><br>
 
 ```shell
     sudo docker stack rm datelife
