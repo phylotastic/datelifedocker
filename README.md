@@ -1,8 +1,8 @@
 # Welcome to DateLife's docker GitHub repository!
 
-![Docker Pulls](https://img.shields.io/docker/pulls/bomeara/datelife?color=green)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bomeara/datelife)
-![Docker Automated build](https://img.shields.io/docker/automated/bomeara/datelife?color=green)
+![Docker Pulls](https://img.shields.io/docker/pulls/lunasare/datelife?color=green)
+<!--![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bomeara/datelife)-->
+![Docker Automated build](https://img.shields.io/docker/automated/lunasare/datelife?color=green)
 [![NSF-1458603](https://img.shields.io/badge/NSF-1458603-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1458603)
 [![NSF-0905606](https://img.shields.io/badge/NSF-0905606-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=0905606)
 [![NSF-1458572](https://img.shields.io/badge/NSF-1458572-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1458572)
@@ -23,30 +23,33 @@ There are a few alternative ways to do this. For all of them you require [Docker
 
 ## 1. Using a prebuilt DateLife docker image
 
-Ideally, docker hub automatically builds the DateLife docker image at [bomeara/datelife](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to the GitHub [phylotastic/datelifedocker repo](https://github.com/phylotastic/datelifedocker).
+Ideally, the `datelife` docker image automatically builds and uploads to [bomeara/datelife's Docker Hub (the docker cloud)](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to [this repository (the GitHub phylotastic/datelifedocker repo)](https://github.com/phylotastic/datelifedocker). Automatic docker builds are not working for the moment (last updated Oct 5 2021), so the latest, locally built, manually uploaded `datelife` docker image is found at [lunasare/datelife's Docker Hub](https://hub.docker.com/repository/docker/lunasare/datelife).
 
 <ul style="list-style-type:none;">
-  <li> 1.1. To get that prebuilt DateLife docker image you need to have [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, get the prebuilt DateLife docker image from Docker Hub with <code>docker pull</code>:
+  <li> 1.1. To download the prebuilt <code>datelife</code> docker image from Docker Hub you need [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, from terminal use the <code>docker pull</code> command:
   </li><br>
 
 ```shell
-    docker pull bomeara/datelife
+    # docker pull bomeara/datelife
+    docker pull lunasare/datelife
 ```
 
-  <li> 1.2. Now you can start the image using <code>docker run</code>. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
+  <li> 1.2. Now, you can start the image using <code>docker run</code>. You can do this in "bash mode" so you can look around (i.e., in the /srv dir for the shiny app):
   </li><br>
 
 ```shell
-    docker run -t -i -p 80:3838 bomeara/datelife sh -c '/bin/bash'
+    # docker run -t -i -p 80:3838 bomeara/datelife sh -c '/bin/bash'
+    docker run -t -i -p 80:3838 lunasare/datelife sh -c '/bin/bash'
 ```
 
 Once you've finished looking around, just type `exit` and you will be logged out.
 
-  <li> 1.3. To start the image in serve mode, do:
+  <li> 1.3. To start the image just in serve mode, do:
   </li><br>
 
 ```shell
-    docker run -t -i -d -p 80:3838 datelife
+    # docker run -t -i -d -p 80:3838 bomeara/datelife
+    docker run -t -i -d -p 80:3838 lunasare/datelife
 ```
 
 Go to http://localhost on any browser to checkout your Datelife website and shiny app running.
@@ -106,13 +109,15 @@ docker exec -it <container-name> sh -c '/bin/bash'
 For more tips see [how-do-i-get-into-a-docker-containers-shell](https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell)
 and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421).
 
-  <li> 2.5. After building and making changes, you can push (if you have permissions) the new DateLife docker image to docker hub with:
+  <li> 2.5. After building and making changes, you can push (if you have permissions) the new <code>datelife</code> docker image to docker hub with:
   </li><br>
 
 ```shell
-    docker tag datelife bomeara/datelife
+    # docker tag datelife bomeara/datelife
+    docker tag datelife lunasare/datelife
     docker login
-    docker push bomeara/datelife
+    # docker push bomeara/datelife
+    docker push lunasare/datelife
 ```
 </ul>
 
