@@ -175,7 +175,8 @@ For domain, *, @, www all resolve to `datelife19.campus.utk.edu.` (yes, with a p
 ## Docker software info
 
 <details>
-<summary>Docker software version info for locally built `datelife` image. Obtained with <code>docker version</code> command.</summary>
+<summary>Docker software version info for locally built <code>datelife</code> image.
+<br> Obtained with <code>docker version</code> command.</summary>
 
 
 ```shell
