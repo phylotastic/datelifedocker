@@ -26,7 +26,7 @@ There are a few alternative ways to do this. For all of them you require [Docker
 Ideally, the `datelife` docker image automatically builds and uploads to [bomeara/datelife's Docker Hub (the docker cloud)](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to [this repository (the GitHub phylotastic/datelifedocker repo)](https://github.com/phylotastic/datelifedocker). Automatic docker builds are not working for the moment (last updated Oct 5 2021), so the latest, locally built, manually uploaded `datelife` docker image is found at [lunasare/datelife's Docker Hub](https://hub.docker.com/repository/docker/lunasare/datelife).
 
 <ul style="list-style-type:none;">
-  <li> 1.1. To download the prebuilt <code>datelife</code> docker image from Docker Hub you need [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Then, from terminal use the <code>docker pull</code> command:
+  <li> 1.1. To download the prebuilt <code>datelife</code> docker image from Docker Hub you need <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, from terminal use the <code>docker pull</code> command:
   </li><br>
 
 ```shell
@@ -132,7 +132,7 @@ You can run multiple shiny app instances with:
 ## 4. Swarm
 
 <ul style="list-style-type:none;">
-  <li> 4.1 Go to node where swarm is being managed. You can change the number of workers in replicas in docker-compose-swarm.yml
+  <li> 4.1 Go to node where swarm is being managed. You can change the number of workers in replicas in the <code>docker-compose-swarm.yml</code> file.
   </li><br>
 
 ```shell
@@ -172,10 +172,10 @@ For domain, *, @, www all resolve to `datelife19.campus.utk.edu.` (yes, with a p
 - https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell
 
 
-## Docker info
+## Docker software info
 
 <details>
-<summary>Docker version info. Obtained with <code>docker version</code> command.</summary>
+<summary>Docker software version info for locally built `datelife` image. Obtained with <code>docker version</code> command.</summary>
 
 
 ```shell
