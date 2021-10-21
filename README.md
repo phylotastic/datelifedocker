@@ -60,9 +60,21 @@ Argument `-d` is optional, it stands for `--detach`, allowing you to keep on usi
 
 </ul>
 
+### DateLife Docker images
+<details>
+<summary>Version details:</summary>
+
+### latest
+
+- Was built with the 'Dockerfile' from `datelifedocker V.0.5.0`
+- Automatic installation of package [datelifeplot]() failed; it was manually
+installed into container before pushing to dockerhub with `devtools::install_github("phylotastic/datelifeplot")`
+
+</details>devtools::install_github("phylotastic/datelifeplot")
+
 ## 2. Building your own DateLife docker image
 
-This is very useful for debugging. If you tried setting up a prebuilt docker image and it fails, this is the way to go.
+This is the option for developers, and local debugging. If you tried setting up a prebuilt docker image and it fails, you should try this.
 
 <ul style="list-style-type:none;">
   <li> 2.1. Make sure you have <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, download the <a href="https://github.com/phylotastic/datelifedocker">datelifedocker repository</a> to your computer. One way is to type from the terminal:
@@ -72,14 +84,17 @@ This is very useful for debugging. If you tried setting up a prebuilt docker ima
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
-  <li> 2.2. Change directories to your newly created datelifedocker directory using <code>cd</code>, and build the DateLife docker image with:
+  <li> 2.2. Change directories to your newly created datelifedocker directory using <code>cd your_path/datelifedocker</code>, and build the DateLife docker image with:
   </li><br>
 
 ```shell
     docker build -t datelife .
 ```
 
-To build with no cache type `docker build -t datelife --no-cache .`
+To build with _no cache_ (that is, rebuilding the image from scratch)
+type `docker build -t datelife --no-cache .`
+
+Note! Building with _no cache_ will take about **2hrs and 36 min** to run.
 
   <li> 2.3 Now you can start the DateLife server from your newly created docker image with:
   </li><br>
@@ -121,6 +136,10 @@ and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docke
     # docker push bomeara/datelife
     docker push lunasare/datelife
 ```
+
+Note! If you make any important changes to the `dockerfile`, please bump its version and
+document the changes on the section [DateLife Docker images](#dateLife-docker-images) of this README.
+
 </ul>
 
 ## 3. Running multiple instances

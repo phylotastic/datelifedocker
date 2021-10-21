@@ -1,5 +1,7 @@
-# Get a shiny image
+# datelifedocker
+# Version: 0.5.0
 
+# First, you have to choose and get a shiny image.
 # Specifying "latest" on version did not work (it kept loading a very old R version).
 # I had to specify explicitly the R version number, i.e., rocker/shiny:latest -> rocker/shiny:4.1.0
 
@@ -8,7 +10,7 @@ FROM rocker/shiny:4.1.0
 
 MAINTAINER Luna Sare <sanchez.reyes.luna@gmail.com>
 
-# Install system libraries of general use
+# Install Linux system libraries of general use
 
 RUN apt-get update && apt-get -y dist-upgrade
 
@@ -56,7 +58,7 @@ RUN apt-get update && \
 
 RUN R -e "update.packages(ask=FALSE)"
 
-RUN R -e "install.packages(c('igraph', 'ggdag'), dependencies = T)"
+RUN R -e "install.packages(c('igraph', 'ggdag'))"
 
 RUN R -e "install.packages(c('rcmdcheck', \
     'shinycssloaders', \
@@ -79,6 +81,8 @@ RUN R -e "install.packages(c('bold', 'rotl', 'knitcitations', 'rentrez'), type='
 RUN R -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN R -e "devtools::install_github('fmichonneau/phyloch')"
 RUN R -e "devtools::install_github('phylotastic/rphylotastic')"
+# For some reason datelifeplot installation is failing,
+# so I am installing into container manually before pushing to docker hub
 RUN R -e "devtools::install_github('phylotastic/datelifeplot')"
 
 
