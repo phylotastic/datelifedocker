@@ -62,14 +62,12 @@ Argument `-d` is optional, it stands for `--detach`, allowing you to keep on usi
 
 ### Prebuilt DateLife Docker images
 <details>
-<summary>Details:</summary>
+<summary>Details</summary>
 
 ### latest version
 
-- Was built with the 'Dockerfile' from `datelifedocker V.0.5.0`
-- Automatic installation of package [datelifeplot]() failed, so, it was manually
-installed into the local container with `devtools::install_github("phylotastic/datelifeplot")`
-before pushing to Docker Hub.
+- Was built with `datelifedocker V.0.5.0`
+- Automatic installation of package [datelifeplot](https://github.com/phylotastic/datelifeplot) failed, so, it was manually installed into the local container with `devtools::install_github("phylotastic/datelifeplot")` before pushing to Docker Hub.
 
 </details>
 
