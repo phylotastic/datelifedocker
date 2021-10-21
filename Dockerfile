@@ -83,17 +83,10 @@ RUN R -e "devtools::install_github('phylotastic/datelifeplot')"
 
 
 # Installing datelife from GitHub
+# you can install form a dev branch, for example:
+# RUN R -e "devtools::install_github('phylotastic/datelife', ref = 'datelife-plots')"
 
-RUN R -e "devtools::install_github('phylotastic/datelife', ref = 'datelife-plots')"
-
-# Installing datelife locally from a development branch
-
-# RUN pwd && \
-#     git clone https://github.com/phylotastic/datelife.git  && \
-#     cd datelife && \
-#     pwd && \
-#     git checkout datelife-plots  && \
-#     R -e "devtools::install('.')"
+RUN R -e "devtools::install_github('phylotastic/datelife')"
 
 # Installing PATHd8
 

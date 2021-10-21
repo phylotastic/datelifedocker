@@ -18,12 +18,14 @@ There are a few alternative ways to do this. For all of them you require [Docker
 
 [3. Running multiple instances of the `datelife` shiny app](#3-running-multiple-instances)
 
-[4. Using swarm](#4-swarm).
+[4. Using swarm](#4-swarm)
 <br><br>
 
 ## 1. Using a prebuilt DateLife docker image
 
 Ideally, the `datelife` docker image automatically builds and uploads to [bomeara/datelife's Docker Hub (the docker cloud)](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to [this repository (the GitHub phylotastic/datelifedocker repo)](https://github.com/phylotastic/datelifedocker). Automatic docker builds are not working for the moment (last updated Oct 5 2021), so the latest, locally built, manually uploaded `datelife` docker image is found at [lunasare/datelife's Docker Hub](https://hub.docker.com/repository/docker/lunasare/datelife).
+
+<!-- Look at this for list styling: https://gist.github.com/bertobox/3503850#gistcomment-1213320 -->
 
 <ul style="list-style-type:none;">
   <li> 1.1. To download the prebuilt <code>datelife</code> docker image from Docker Hub you need <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, from terminal use the <code>docker pull</code> command:
@@ -132,7 +134,7 @@ You can run multiple shiny app instances with:
 ## 4. Swarm
 
 <ul style="list-style-type:none;">
-  <li> 4.1 Go to node where swarm is being managed. You can change the number of workers in replicas in the <code>docker-compose-swarm.yml</code> file.
+  <li> 4.1. Go to node where swarm is being managed. You can change the number of workers in replicas in the <code>docker-compose-swarm.yml</code> file.
   </li><br>
 
 ```shell
