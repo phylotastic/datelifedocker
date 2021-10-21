@@ -81,16 +81,15 @@ RUN R -e "install.packages(c('bold', 'rotl', 'knitcitations', 'rentrez'), type='
 RUN R -e "devtools::install_github('fmichonneau/phylobase')"  # regular install.packages command not working with phylobase; tried type = "source" and did not work either
 RUN R -e "devtools::install_github('fmichonneau/phyloch')"
 RUN R -e "devtools::install_github('phylotastic/rphylotastic')"
-# For some reason datelifeplot installation is failing,
-# so I am installing into container manually before pushing to docker hub
-RUN R -e "devtools::install_github('phylotastic/datelifeplot')"
-
 
 # Installing datelife from GitHub
 # you can install form a dev branch, for example:
 # RUN R -e "devtools::install_github('phylotastic/datelife', ref = 'datelife-plots')"
 
 RUN R -e "devtools::install_github('phylotastic/datelife')"
+
+
+RUN R -e "devtools::install_github('phylotastic/datelifeplot')"
 
 # Installing PATHd8
 
