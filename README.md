@@ -1,4 +1,4 @@
-# Welcome to DateLife's docker GitHub repository!
+# Welcome to DateLife's Docker GitHub repository!
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/lunasare/datelife?color=green)
 <!--![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bomeara/datelife)-->
@@ -9,7 +9,7 @@
 
 `datelife` is a software that gets all available information on time of divergence of a group of lineages, and uses this information to date a phylogenetic tree.
 `datelife` functionalities can be accessed via its [R package](https://github.com/phylotastic/datelife), or through its [website application]().
-`datelife`'s webiste app [is constructed with R shiny](https://github.com/phylotastic/datelifeweb) and is containerized with [Docker](https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=namer&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw7--KBhAMEiwAxfpkWMXM6XbTANoSspqojqsXX7dBeTm13Yc7lwzn8kz7iAWAT_m0fEo9MRoCq9MQAvD_BwE), i.e. "dockerized", as [explained here](https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/). This repository hosts the instructions for  "dockerizing" `datelife`, which we whipped up by following diverse [valuable resources](#resources). The `datelife` docker allows anyone to set up their own server for the `datelife` webb app anywhere.
+`datelife`'s webiste app [is constructed with R shiny](https://github.com/phylotastic/datelifeweb) and is containerized with [Docker](https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=namer&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw7--KBhAMEiwAxfpkWMXM6XbTANoSspqojqsXX7dBeTm13Yc7lwzn8kz7iAWAT_m0fEo9MRoCq9MQAvD_BwE), i.e. "dockerized", as [explained here](https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/). This repository hosts the instructions for  "dockerizing" `datelife`, which we whipped up by following diverse [valuable resources](#resources). The `datelife` Docker allows anyone to set up their own server for the `datelife` webb app anywhere.
 There are a few alternative ways to do this. For all of them you require [Docker Desktop installed](https://www.docker.com/products/docker-desktop). Next you can find instructions on:
 
 [1. Setting up a prebuilt `datelife` image](#1-using-a-prebuilt-datelife-docker-image)
@@ -21,14 +21,14 @@ There are a few alternative ways to do this. For all of them you require [Docker
 [4. Using swarm](#4-swarm)
 <br><br>
 
-## 1. Using a prebuilt DateLife docker image
+## 1. Using a prebuilt DateLife Docker image
 
-Ideally, the `datelife` docker image automatically builds and uploads to [bomeara/datelife's Docker Hub (the docker cloud)](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to [this repository (the GitHub phylotastic/datelifedocker repo)](https://github.com/phylotastic/datelifedocker). Automatic docker builds are not working for the moment (last updated Oct 5 2021), so the latest, locally built, manually uploaded `datelife` docker image is found at [lunasare/datelife's Docker Hub](https://hub.docker.com/repository/docker/lunasare/datelife).
+Ideally, the `datelife` Docker image automatically builds and uploads to [bomeara/datelife's Docker Hub (the Docker cloud)](https://hub.docker.com/r/bomeara/datelife/dockerfile) with pushes to [this repository (the GitHub phylotastic/datelifedocker repo)](https://github.com/phylotastic/datelifedocker). Automatic Docker builds are not working for the moment (last updated Oct 5 2021), so the latest, locally built, manually uploaded `datelife` Docker image is found at [lunasare/datelife's Docker Hub](https://hub.docker.com/repository/docker/lunasare/datelife).
 
 <!-- Look at this for list styling: https://gist.github.com/bertobox/3503850#gistcomment-1213320 -->
 
 <ul style="list-style-type:none;">
-  <li> 1.1. To download the prebuilt <code>datelife</code> docker image from Docker Hub you need <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, from terminal use the <code>docker pull</code> command:
+  <li> 1.1. To download the prebuilt <code>datelife</code> Docker image from Docker Hub you need <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, from terminal use the <code>docker pull</code> command:
   </li><br>
 
 ```shell
@@ -60,21 +60,22 @@ Argument `-d` is optional, it stands for `--detach`, allowing you to keep on usi
 
 </ul>
 
-### DateLife Docker images
+### Prebuilt DateLife Docker images
 <details>
-<summary>Version details:</summary>
+<summary>Details:</summary>
 
-### latest
+### latest version
 
 - Was built with the 'Dockerfile' from `datelifedocker V.0.5.0`
-- Automatic installation of package [datelifeplot]() failed; it was manually
-installed into container before pushing to dockerhub with `devtools::install_github("phylotastic/datelifeplot")`
+- Automatic installation of package [datelifeplot]() failed, so, it was manually
+installed into the local container with `devtools::install_github("phylotastic/datelifeplot")`
+before pushing to Docker Hub.
 
-</details>devtools::install_github("phylotastic/datelifeplot")
+</details>
 
-## 2. Building your own DateLife docker image
+## 2. Building your own DateLife Docker image
 
-This is the option for developers, and local debugging. If you tried setting up a prebuilt docker image and it fails, you should try this.
+This is the option for developers, and local debugging. If you tried setting up a prebuilt Docker image and it fails, you should try this.
 
 <ul style="list-style-type:none;">
   <li> 2.1. Make sure you have <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, download the <a href="https://github.com/phylotastic/datelifedocker">datelifedocker repository</a> to your computer. One way is to type from the terminal:
@@ -84,7 +85,7 @@ This is the option for developers, and local debugging. If you tried setting up 
     git clone https://github.com/phylotastic/datelifedocker.git
 ```
 
-  <li> 2.2. Change directories to your newly created datelifedocker directory using <code>cd your_path/datelifedocker</code>, and build the DateLife docker image with:
+  <li> 2.2. Change directories to your newly created datelifedocker directory using <code>cd your_path/datelifedocker</code>, and build the DateLife Docker image with:
   </li><br>
 
 ```shell
@@ -96,7 +97,7 @@ type `docker build -t datelife --no-cache .`
 
 Note! Building with _no cache_ will take about **2hrs and 36 min** to run.
 
-  <li> 2.3 Now you can start the DateLife server from your newly created docker image with:
+  <li> 2.3 Now you can start the DateLife server from your newly created Docker image with:
   </li><br>
 
 ```shell
@@ -107,7 +108,7 @@ Go to http://localhost on any browser to checkout your Datelife shiny app runnin
 
 To stop serving, type `Ctrl + c` or `exit`
 
-  <li> 2.4. To explore the contents of the DateLife docker image on terminal, you can do:
+  <li> 2.4. To explore the contents of the DateLife Docker image on terminal, you can do:
   </li><br>
 
 ```shell
@@ -126,7 +127,7 @@ docker exec -it <container-name> sh -c '/bin/bash'
 For more tips see [how-do-i-get-into-a-docker-containers-shell](https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell)
 and [15-docker-commands-you-should-know](https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421).
 
-  <li> 2.5. After building and making changes, you can push (if you have permissions) the new <code>datelife</code> docker image to docker hub with:
+  <li> 2.5. After building and making changes, you can push (if you have permissions) the new <code>datelife</code> Docker image to Docker hub with:
   </li><br>
 
 ```shell
