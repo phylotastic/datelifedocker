@@ -16,12 +16,13 @@ build](https://img.shields.io/docker/automated/lunasare/datelife?color=green)
 
 `datelife` is a software that gets all available information on time of
 divergence of a group of lineages, and uses this information to date a
-phylogenetic tree. `datelife` functionalities can be accessed via its [R
-package](https://github.com/phylotastic/datelife), or through its
-[website application](http://datelife.opentreeoflife.org/). `datelife`’s
-website app [is constructed with R
-shiny](https://github.com/phylotastic/datelifeweb) and is containerized
-with
+phylogenetic tree. Its functionalities can be accessed via the
+[`datelife` R package](https://github.com/phylotastic/datelife), or
+through [`datelife`’s
+website](http://datelife.opentreeoflife.org/query), which is
+[constructed as an R shiny
+application](https://github.com/phylotastic/datelifeweb) and is
+containerized with
 [Docker](https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=namer&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw7--KBhAMEiwAxfpkWMXM6XbTANoSspqojqsXX7dBeTm13Yc7lwzn8kz7iAWAT_m0fEo9MRoCq9MQAvD_BwE),
 i.e. “dockerized”, as [explained
 here](https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/).
@@ -31,19 +32,27 @@ which we whipped up by following diverse [valuable
 resources](#resources). The `datelife` Docker allows anyone to set up
 their own server for the `datelife` web app anywhere. There are a few
 alternative ways to do this. For all of them you require [Docker Desktop
-installed](https://www.docker.com/products/docker-desktop). Next you can
-find instructions on:
+installed](https://www.docker.com/products/docker-desktop).
+
+Table of Contents:
 
 [1. Setting up a prebuilt `datelife`
 image](#1-using-a-prebuilt-datelife-docker-image)
 
-[2. Building a local `datelife` image on your
-own](#2-building-your-own-datelife-docker-image)
+[  • Docker image datelife v0.5.0
+about](#docker-image-datelife-v050-about)
+
+[2. Building a local `datelife`
+image](#2-building-your-own-datelife-docker-image)
 
 [3. Running multiple instances of the `datelife` shiny
 app](#3-running-multiple-instances)
 
-[4. Using swarm](#4-swarm) <br><br>
+[4. Using swarm](#4-swarm)
+
+[Resources](#resources)
+
+<br><br>
 
 ## 1\. Using a prebuilt DateLife Docker image
 
@@ -219,6 +228,8 @@ Server: Docker Engine - Community
 
 </details>
 
+<br><br>
+
 ## 2\. Building your own DateLife Docker image
 
 This is the option for developers, and local debugging. If you tried
@@ -327,9 +338,11 @@ with:
 
 Note\! If you make any important changes to the `dockerfile`, please
 bump its version and document the changes on the section [Docker image
-DateLife](#docker-image-datelife-v0.5.0-about) of this README.
+DateLife](#docker-image-datelife-v050-about) of this README.
 
 </ul>
+
+<br><br>
 
 ## 3\. Running multiple instances
 
@@ -338,6 +351,8 @@ You can run multiple shiny app instances with:
 ``` shell
     docker-compose up -d --scale datelife=10 # for ten instances
 ```
+
+<br><br>
 
 ## 4\. Swarm
 
@@ -385,6 +400,8 @@ For domain, \*, @, www all resolve to `datelife19.campus.utk.edu.` (yes,
 with a period after edu) using CNAME
 
 </ul>
+
+<br><br>
 
 ## Resources
 
