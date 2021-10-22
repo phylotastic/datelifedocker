@@ -34,3 +34,5 @@ vignettes/*.pdf
 
 # Other files
 gitdiff.txt
+*.Rproj
+.Rprofile

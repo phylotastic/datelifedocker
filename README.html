@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- README.md is generated from README.Rmd. Please edit README.Rmd file and render to .md with 
+rmarkdown::render(input = "README.Rmd")
+-->
+
+<h1 id="welcome-to-datelifes-docker-github-repository">Welcome to DateLife’s Docker GitHub repository!</h1>
+<p><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ImRvY2tlciBwdWxsczogMzgiPjx0aXRsZT5kb2NrZXIgcHVsbHM6IDM4PC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjcikiPjxyZWN0IHdpZHRoPSI3NyIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHg9Ijc3IiB3aWR0aD0iMjMiIGhlaWdodD0iMjAiIGZpbGw9IiM5N2NhMDAiLz48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI3MpIi8+PC9nPjxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJWZXJkYW5hLEdlbmV2YSxEZWphVnUgU2FucyxzYW5zLXNlcmlmIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBmb250LXNpemU9IjExMCI+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjM5NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNjcwIj5kb2NrZXIgcHVsbHM8L3RleHQ+PHRleHQgeD0iMzk1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSI2NzAiPmRvY2tlciBwdWxsczwvdGV4dD48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iODc1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIxMzAiPjM4PC90ZXh0Pjx0ZXh0IHg9Ijg3NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iMTMwIj4zODwvdGV4dD48L2c+PC9zdmc+" alt="Docker Pulls" /></p>
+<!--![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bomeara/datelife)-->
+
+<p><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ImRvY2tlciBidWlsZDogbWFudWFsIj48dGl0bGU+ZG9ja2VyIGJ1aWxkOiBtYW51YWw8L3RpdGxlPjxsaW5lYXJHcmFkaWVudCBpZD0icyIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iciI+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9Ijc3IiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iNzciIHdpZHRoPSI1MSIgaGVpZ2h0PSIyMCIgZmlsbD0iIzk3Y2EwMCIvPjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMjAiIGZpbGw9InVybCgjcykiLz48L2c+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlZlcmRhbmEsR2VuZXZhLERlamFWdSBTYW5zLHNhbnMtc2VyaWYiIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIGZvbnQtc2l6ZT0iMTEwIj48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iMzk1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSI2NzAiPmRvY2tlciBidWlsZDwvdGV4dD48dGV4dCB4PSIzOTUiIHk9IjE0MCIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIGZpbGw9IiNmZmYiIHRleHRMZW5ndGg9IjY3MCI+ZG9ja2VyIGJ1aWxkPC90ZXh0Pjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSIxMDE1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSI0MTAiPm1hbnVhbDwvdGV4dD48dGV4dCB4PSIxMDE1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSI0MTAiPm1hbnVhbDwvdGV4dD48L2c+PC9zdmc+" alt="Docker Automated build" /> <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=1458603"><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTIiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTlNGOiAxNDU4NjAzIj48dGl0bGU+TlNGOiAxNDU4NjAzPC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSI5MiIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9IjMzIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iMzMiIHdpZHRoPSI1OSIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwN2VjNiIvPjxyZWN0IHdpZHRoPSI5MiIgaGVpZ2h0PSIyMCIgZmlsbD0idXJsKCNzKSIvPjwvZz48ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iVmVyZGFuYSxHZW5ldmEsRGVqYVZ1IFNhbnMsc2Fucy1zZXJpZiIgdGV4dC1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiIgZm9udC1zaXplPSIxMTAiPjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSIxNzUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjIzMCI+TlNGPC90ZXh0Pjx0ZXh0IHg9IjE3NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iMjMwIj5OU0Y8L3RleHQ+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjYxNSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNDkwIj4xNDU4NjAzPC90ZXh0Pjx0ZXh0IHg9IjYxNSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iNDkwIj4xNDU4NjAzPC90ZXh0PjwvZz48L3N2Zz4=" alt="NSF-1458603" /></a> <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=0905606"><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTIiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTlNGOiAwOTA1NjA2Ij48dGl0bGU+TlNGOiAwOTA1NjA2PC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSI5MiIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9IjMzIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iMzMiIHdpZHRoPSI1OSIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwN2VjNiIvPjxyZWN0IHdpZHRoPSI5MiIgaGVpZ2h0PSIyMCIgZmlsbD0idXJsKCNzKSIvPjwvZz48ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iVmVyZGFuYSxHZW5ldmEsRGVqYVZ1IFNhbnMsc2Fucy1zZXJpZiIgdGV4dC1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiIgZm9udC1zaXplPSIxMTAiPjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSIxNzUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjIzMCI+TlNGPC90ZXh0Pjx0ZXh0IHg9IjE3NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iMjMwIj5OU0Y8L3RleHQ+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjYxNSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNDkwIj4wOTA1NjA2PC90ZXh0Pjx0ZXh0IHg9IjYxNSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iNDkwIj4wOTA1NjA2PC90ZXh0PjwvZz48L3N2Zz4=" alt="NSF-0905606" /></a> <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=1458572"><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTIiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTlNGOiAxNDU4NTcyIj48dGl0bGU+TlNGOiAxNDU4NTcyPC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSI5MiIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9IjMzIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iMzMiIHdpZHRoPSI1OSIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwN2VjNiIvPjxyZWN0IHdpZHRoPSI5MiIgaGVpZ2h0PSIyMCIgZmlsbD0idXJsKCNzKSIvPjwvZz48ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iVmVyZGFuYSxHZW5ldmEsRGVqYVZ1IFNhbnMsc2Fucy1zZXJpZiIgdGV4dC1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiIgZm9udC1zaXplPSIxMTAiPjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSIxNzUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjIzMCI+TlNGPC90ZXh0Pjx0ZXh0IHg9IjE3NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iMjMwIj5OU0Y8L3RleHQ+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjYxNSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNDkwIj4xNDU4NTcyPC90ZXh0Pjx0ZXh0IHg9IjYxNSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iNDkwIj4xNDU4NTcyPC90ZXh0PjwvZz48L3N2Zz4=" alt="NSF-1458572" /></a></p>
+<p><code>datelife</code> is a software that gets all available information on time of divergence of a group of lineages, and uses this information to date a phylogenetic tree. <code>datelife</code> functionalities can be accessed via its <a href="https://github.com/phylotastic/datelife">R package</a>, or through its <a href="http://datelife.opentreeoflife.org/">website application</a>. <code>datelife</code>’s website app <a href="https://github.com/phylotastic/datelifeweb">is constructed with R shiny</a> and is containerized with <a href="https://www.docker.com/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=dockerhomepage&amp;utm_content=namer&amp;utm_term=dockerhomepage&amp;utm_budget=growth&amp;gclid=CjwKCAjw7--KBhAMEiwAxfpkWMXM6XbTANoSspqojqsXX7dBeTm13Yc7lwzn8kz7iAWAT_m0fEo9MRoCq9MQAvD_BwE">Docker</a>, i.e. “dockerized”, as <a href="https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/">explained here</a>.</p>
+<p>This repository hosts the instructions for “dockerizing” <code>datelife</code>, which we whipped up by following diverse <a href="#resources">valuable resources</a>. The <code>datelife</code> Docker allows anyone to set up their own server for the <code>datelife</code> web app anywhere. There are a few alternative ways to do this. For all of them you require <a href="https://www.docker.com/products/docker-desktop">Docker Desktop installed</a>. Next you can find instructions on:</p>
+<p><a href="#1-using-a-prebuilt-datelife-docker-image">1. Setting up a prebuilt <code>datelife</code> image</a></p>
+<p><a href="#2-building-your-own-datelife-docker-image">2. Building a local <code>datelife</code> image on your own</a></p>
+<p><a href="#3-running-multiple-instances">3. Running multiple instances of the <code>datelife</code> shiny app</a></p>
+<p><a href="#4-swarm">4. Using swarm</a> <br><br></p>
+<h2 id="1-using-a-prebuilt-datelife-docker-image">1. Using a prebuilt DateLife Docker image</h2>
+<p>Ideally, the latest <code>datelife</code> Docker image automatically builds and uploads to <a href="https://hub.docker.com/r/bomeara/datelife/dockerfile">bomeara/datelife’s Docker Hub (the Docker cloud)</a> with pushes to <a href="https://github.com/phylotastic/datelifedocker">this repository (the GitHub phylotastic/datelifedocker repo)</a>. However, due to changes on Docker’s product subscriptions, automatic builds are not available for the moment (last updated on Oct 22, 2021). <code>datelife v0.5.0</code> is the latest, locally built, manually uploaded Docker image, and is hosted at <a href="https://hub.docker.com/repository/docker/lunasare/datelife">lunasare/datelife’s Docker Hub</a>.</p>
+<!-- Look at this for list styling: https://gist.github.com/bertobox/3503850#gistcomment-1213320 -->
+
+<ul style="list-style-type:none;">
+
+<li>
+
+<p>1.1. To download the prebuilt <code>datelife</code> Docker image from Docker Hub you need <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, from terminal use the <code>docker pull</code> command:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    # docker pull bomeara/datelife
+    docker pull lunasare/datelife:v0.5.0
+</code></pre>
+<li>
+
+<p>1.2. Now, you can start the image using <code>docker run</code>. You can do this in “bash mode” so you can look around (i.e., in the /srv dir for the shiny app):</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    # docker run -t -i -p 80:3838 bomeara/datelife sh -c &#39;/bin/bash&#39;
+    docker run -t -i -p 80:3838 lunasare/datelife:v0.5.0 sh -c &#39;/bin/bash&#39;
+</code></pre>
+<p>Once you’ve finished looking around, just type <code>exit</code> and you will be logged out.</p>
+<li>
+
+<p>1.3. To start the image just in serve mode, do:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    # docker run -t -i -d -p 80:3838 bomeara/datelife
+    docker run -t -i -d -p 80:3838 lunasare/datelife:v0.5.0
+</code></pre>
+<p>Go to <a href="http://localhost">http://localhost</a> on any browser to checkout your Datelife website and shiny app running.</p>
+<p>Argument <code>-d</code> is optional, it stands for <code>--detach</code>, allowing you to keep on using your terminal while the DateLife website is being served.</p>
+</ul>
+
+<h3 id="docker-image-datelife-v050-about">Docker image datelife v0.5.0 about</h3>
+<details>
+
+<summary>Information on R packages used</summary>
+
+<p>Obtained with R by running the following from the <a href="https://github.com/phylotastic/datelifeweb">datelifeweb</a> project in RStudio:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>renv<span class="op">::</span><span class="kw">init</span>()</span>
+<span id="cb4-2"><a href="#cb4-2"></a>deps &lt;-<span class="st"> </span><span class="kw">unique</span>(renv<span class="op">::</span><span class="kw">dependencies</span>()[,<span class="st">&quot;Package&quot;</span>])</span>
+<span id="cb4-3"><a href="#cb4-3"></a>vers &lt;-<span class="st"> </span><span class="kw">structure</span>(<span class="kw">lapply</span>(deps[<span class="kw">order</span>(deps)], packageVersion), <span class="dt">names =</span> deps[<span class="kw">order</span>(deps)])</span>
+<span id="cb4-4"><a href="#cb4-4"></a>vers</span></code></pre></div>
+<pre><code>$ape
+[1] ‘5.5’
+
+$datelife
+[1] ‘0.5.0’
+
+$datelifeplot
+[1] ‘0.1.0’
+
+$devtools
+[1] ‘2.4.2’
+
+$future
+[1] ‘1.22.1’
+
+$phangorn
+[1] ‘2.7.1’
+
+$phyloch
+[1] ‘1.5.5’
+
+$promises
+[1] ‘1.2.0.1’
+
+$renv
+[1] ‘0.14.0’
+
+$shiny
+[1] ‘1.6.0’
+
+$shinycssloaders
+[1] ‘1.0.0’
+
+$strap
+[1] ‘1.4’
+
+$stringr
+[1] ‘1.4.0’
+
+$utils
+[1] ‘4.1.0’
+</code></pre>
+</details>
+
+<details>
+
+<summary>Information on Docker software</summary>
+
+<p>Obtained with <code>docker version</code> command from the terminal:</p>
+<pre class="shell"><code>Client: Docker Engine - Community
+ Cloud integration: 1.0.7
+ Version:           20.10.2
+ API version:       1.41
+ Go version:        go1.13.15
+ Git commit:        2291f61
+ Built:             Mon Dec 28 16:12:42 2020
+ OS/Arch:           darwin/amd64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.2
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.13.15
+  Git commit:       8891c58
+  Built:            Mon Dec 28 16:15:28 2020
+  OS/Arch:          linux/amd64
+  Experimental:     true
+ containerd:
+  Version:          1.4.3
+  GitCommit:        269548fa27e0089a8b8278fc4fc781d7f65a939b
+ runc:
+  Version:          1.0.0-rc92
+  GitCommit:        ff819c7e9184c13b7c2607fe6c30ae19403a7aff
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+</code></pre>
+</details>
+
+<h2 id="2-building-your-own-datelife-docker-image">2. Building your own DateLife Docker image</h2>
+<p>This is the option for developers, and local debugging. If you tried setting up a prebuilt Docker image and it fails, you should try this.</p>
+<ul style="list-style-type:none;">
+
+<li>
+
+<p>2.1. Make sure you have <a href="https://www.docker.com/products/docker-desktop">Docker desktop installed</a>. Then, download the <a href="https://github.com/phylotastic/datelifedocker">datelifedocker repository</a> to your computer. One way is to type from the terminal:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    git clone https://github.com/phylotastic/datelifedocker.git
+</code></pre>
+<li>
+
+<p>2.2. Change directories to your newly created datelifedocker directory using <code>cd your_path/datelifedocker</code>, and build the DateLife Docker image with:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    docker build -t datelife:[optional tag] .
+</code></pre>
+<p>To build with <em>no cache</em> (that is, rebuilding the image from scratch) type <code>docker build -t datelife --no-cache .</code></p>
+<p>Note! Building with <em>no cache</em> will take about <strong>2hrs and 36 min</strong> to run.</p>
+<li>
+
+<p>2.3 Now you can start the DateLife server from your newly created Docker image with:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    docker run -t -i -p 80:3838 datelife:[optional tag]
+</code></pre>
+<p>Go to <a href="http://localhost">http://localhost</a> on any browser to checkout your Datelife shiny app running.</p>
+<p>To stop serving, type <code>Ctrl + c</code> or <code>exit</code></p>
+<li>
+
+<p>2.4. To explore the contents of the DateLife Docker image on terminal, you can do:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>docker run -t -i datelife:[optional tag] sh -c &#39;/bin/bash&#39;
+</code></pre>
+<p>If you want to explore a particular container, first list them all with <code>docker container ls</code>, and identify the <code>container-name</code> of the one you are interested in.</p>
+<p>Then restart your container and execute it with:</p>
+<pre class="shell"><code>docker container restart &lt;container-name&gt;
+docker exec -it &lt;container-name&gt; sh -c &#39;/bin/bash&#39;
+</code></pre>
+<p>For more tips see <a href="https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell">how-do-i-get-into-a-docker-containers-shell</a> and <a href="https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421">15-docker-commands-you-should-know</a>.</p>
+<li>
+
+<p>2.5. After building and making changes, you can push (if you have permissions) the new <code>datelife</code> Docker image to Docker hub with:</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    docker tag datelife:[version number] lunasare/datelife:[version number]
+    docker login
+    docker push lunasare/datelife:[version number]
+</code></pre>
+<p>Note! If you make any important changes to the <code>dockerfile</code>, please bump its version and document the changes on the section <a href="#docker-image-datelife-v0.5.0-about">Docker image DateLife</a> of this README.</p>
+</ul>
+
+<h2 id="3-running-multiple-instances">3. Running multiple instances</h2>
+<p>You can run multiple shiny app instances with:</p>
+<pre class="shell"><code>    docker-compose up -d --scale datelife=10 # for ten instances
+</code></pre>
+<h2 id="4-swarm">4. Swarm</h2>
+<ul style="list-style-type:none;">
+
+<li>
+
+<p>4.1. Go to node where swarm is being managed. You can change the number of workers in replicas in the <code>docker-compose-swarm.yml</code> file.</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    sudo docker stack deploy --compose-file docker-compose-swarm.yml datelife
+</code></pre>
+<li>
+
+<p>4.2. See how it’s doing with</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    sudo docker stack services datelife
+</code></pre>
+<li>
+
+<p>4.3. And stop it with</p>
+</li>
+
+<br>
+
+<pre class="shell"><code>    sudo docker stack rm datelife
+</code></pre>
+<p>For domain, *, @, www all resolve to <code>datelife19.campus.utk.edu.</code> (yes, with a period after edu) using CNAME</p>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/">https://www.r-bloggers.com/2021/05/dockerizing-shiny-applications/</a></li>
+<li><a href="https://github.com/flaviobarros/shiny-wordcloud/blob/master/Dockerfile">https://github.com/flaviobarros/shiny-wordcloud/blob/master/Dockerfile</a></li>
+<li><a href="https://www.statworx.com/at/blog/how-to-dockerize-shinyapps/">https://www.statworx.com/at/blog/how-to-dockerize-shinyapps/</a></li>
+<li><a href="https://www.youtube.com/watch?v=ARd5IldVFUs">https://www.youtube.com/watch?v=ARd5IldVFUs</a></li>
+<li><a href="https://hub.docker.com/u/rocker">https://hub.docker.com/u/rocker</a></li>
+<li><a href="https://www.dabbleofdevops.com/blog/deploy-rshiny-with-the-rocker-shiny-docker-image">https://www.dabbleofdevops.com/blog/deploy-rshiny-with-the-rocker-shiny-docker-image</a></li>
+<li><a href="https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/">https://blog.sellorm.com/2021/04/25/shiny-app-in-docker/</a></li>
+<li><a href="https://juanitorduz.github.io/dockerize-a-shinyapp/">https://juanitorduz.github.io/dockerize-a-shinyapp/</a></li>
+<li><a href="https://bhoom.wordpress.com/2020/06/18/using-multiple-r-versions-with-docker-rocker-rstudio-project/">https://bhoom.wordpress.com/2020/06/18/using-multiple-r-versions-with-docker-rocker-rstudio-project/</a></li>
+<li><a href="https://githubmemory.com/repo/rocker-org/shiny/issues/92">https://githubmemory.com/repo/rocker-org/shiny/issues/92</a></li>
+<li><a href="https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell">https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell</a></li>
+</ul>
+
+</body>
+</html>
